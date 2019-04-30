@@ -6,11 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import vlocity.exam.model.Project;
 import vlocity.exam.model.Task;
 
 public class ProjectScheduler {
-	
+	private final static Logger logger = LoggerFactory.getLogger(ProjectScheduler.class);
 	private LocalDate date;
 
 	/**
@@ -45,9 +47,9 @@ public class ProjectScheduler {
 	 */
 	private LocalDate add(LocalDate date, Task task) {
 		int manDays = task.getManDays();
-		System.out.println("Task name: " + task.getName());
-		System.out.println("Duration " + manDays + " day/s");
-		System.out.println("Start date: " + date);
+		logger.info("Task name: {}", task.getName());
+		logger.info("Duration {} day/s", manDays);
+		logger.info("Start date: {}", date);
 		if (manDays < 1) {
 			return date;
 		}
@@ -63,8 +65,8 @@ public class ProjectScheduler {
 		
 		//TODO: Add skip holiday
 		
-		System.out.println("End date: " + result);
-		System.out.println("===================");
+		logger.info("End date: {}", result);
+		logger.info("====================");
 		return result;
 	}
 }

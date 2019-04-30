@@ -5,6 +5,8 @@ import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.log4j.BasicConfigurator;
+
 import vlocity.exam.model.Project;
 import vlocity.exam.model.Task;
 import vlocity.exam.scheduler.ProjectScheduler;
@@ -15,6 +17,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		BasicConfigurator.configure();
 		ProjectScheduler cpc = new ProjectScheduler();
 		Project project = new Project();
 		project.setName("Vlocity Exam");
