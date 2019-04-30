@@ -2,8 +2,9 @@ package vlocity.exam.scheduler;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import vlocity.exam.model.Project;
 import vlocity.exam.model.Task;
@@ -27,7 +28,7 @@ public class ProjectScheduler {
 	 */
 	private void scheduleTask(List<Task> tasks) {
 		for (Task task : tasks) {
-			if (task.getTask() == null) {
+			if (Optional.ofNullable(task.getTask()).orElse(new ArrayList<Task>()).isEmpty()) {
 				date = add(date, task);
 			} else {
 				scheduleTask(task.getTask());
