@@ -47,9 +47,6 @@ public class ProjectScheduler {
 	 */
 	private LocalDate add(LocalDate date, Task task) {
 		int manDays = task.getManDays();
-		logger.info("Task name: {}", task.getName());
-		logger.info("Duration {} day/s", manDays);
-		logger.info("Start date: {}", date);
 		if (manDays < 1) {
 			return date;
 		}
@@ -64,7 +61,11 @@ public class ProjectScheduler {
 		}
 		
 		//TODO: Add skip holiday
+		//TODO: put schedule in a model here????
 		
+		logger.info("Task name: {}", task.getName());
+		logger.info("Duration {} day/s", manDays);
+		logger.info("Start date: {}", date);
 		logger.info("End date: {}", result);
 		logger.info("====================");
 		return result;
